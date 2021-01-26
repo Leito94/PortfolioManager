@@ -1,6 +1,16 @@
 ,ticker,names,industry,country
-0,RETO,"ReTo Eco-Solutions, Inc.",Basic Materials,China
-1,PETZ,"TDH Holdings, Inc.",Consumer Defensive,China
-2,GSUM,Gridsum Holding Inc.,Technology,China
-3,KXIN,Kaixin Auto Holdings,Consumer Cyclical,China
-4,NEWA,"Newater Technology, Inc.",Industrials,China
+0,AVAL,Grupo Aval Acciones y Valores S,Financial Services,Colombia
+1,WF,Woori Financial Group Inc.,Financial Services,South Korea
+2,PKX,POSCO,Basic Materials,South Korea
+3,SHG,Shinhan Financial Group Co Ltd,Financial Services,South Korea
+4,KT,KT Corporation,Communication Services,South Korea
+5,SKM,"SK Telecom Co., Ltd.",Communication Services,South Korea
+6,EDN,Empresa Distribuidora Y Comerci,Utilities,Argentina
+7,NMR,Nomura Holdings Inc,Financial Services,Japan
+8,IX,Orix Corp,Financial Services,Japan
+9,HMC,"Honda Motor Company, Ltd.",Consumer Cyclical,Japan
+10,PAM,Pampa Energia S.A. Pampa Energi,Utilities,Argentina
+11,BBAR,Banco BBVA Argentina S.A.,Financial Services,Argentina
+12,CAJ,"Canon, Inc.",Technology,Japan
+13,TM,Toyota Motor Corporation,Consumer Cyclical,Japan
+14,GGAL,Grupo Financiero Galicia S.A.,Financial Services,Argentina

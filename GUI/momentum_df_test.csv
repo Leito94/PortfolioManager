@@ -1,16 +1,46 @@
 ,ticker,names,industry,country
-0,CABO,"Cable One, Inc.",Communication Services,United States
-1,SHOP,Shopify Inc.,Technology,Canada
-2,EQIX,"Equinix, Inc.",Real Estate,United States
-3,DXCM,"DexCom, Inc.",Healthcare,United States
-4,TDOC,"Teladoc Health, Inc.",Healthcare,United States
-5,RNG,"Ringcentral, Inc.",Technology,United States
-6,AMZN,"Amazon.com, Inc.",Consumer Cyclical,United States
-7,MKTX,"MarketAxess Holdings, Inc.",Financial Services,United States
-8,REGN,"Regeneron Pharmaceuticals, Inc.",Healthcare,United States
-9,DPZ,Domino's Pizza Inc,Consumer Cyclical,United States
-10,TYL,"Tyler Technologies, Inc.",Technology,United States
-11,CHTR,"Charter Communications, Inc.",Communication Services,United States
-12,CHE,Chemed Corp,Healthcare,United States
-13,SAM,"Boston Beer Company, Inc. (The)",Consumer Defensive,United States
-14,EHTH,"eHealth, Inc.",Financial Services,United States
+0,UONE,"Urban One, Inc.",Communication Services,United States
+1,WKHS,"Workhorse Group, Inc.",Consumer Cyclical,United States
+2,NETE,"Net Element, Inc.",Technology,United States
+3,COHN,Cohen & Company Inc.,Financial Services,United States
+4,BLNK,Blink Charging Co. Common Stock,Consumer Cyclical,United States
+5,KODK,Eastman Kodak Company,Industrials,United States
+6,KIRK,"Kirkland's, Inc.",Consumer Cyclical,United States
+7,MARA,"Marathon Patent Group, Inc.",Financial Services,United States
+8,COGT,"Cogent Biosciences, Inc.",Healthcare,United States
+9,IMRN,Immuron Limited,Healthcare,Australia
+10,HGEN,"Humanigen, Inc.",Healthcare,United States
+11,CLIR,ClearSign Technologies Corporat,Industrials,United States
+12,OSTK,"Overstock.com, Inc.",Consumer Cyclical,United States
+13,JMIA,Jumia Technologies AG,Consumer Cyclical,Germany
+14,CLDX,"Celldex Therapeutics, Inc.",Healthcare,United States
+15,IDEX,"Ideanomics, Inc.",Technology,United States
+16,TUP,Tupperware Brands Corporation,Consumer Cyclical,United States
+17,RZLT,"Rezolute, Inc.",Healthcare,United States
+18,IPWR,Ideal Power Inc.,Industrials,United States
+19,UUU,"Universal Security Instruments,",Industrials,United States
+20,PDSB,PDS Biotechnology Corporation,Healthcare,United States
+21,SOHU,Sohu.com Limited,Communication Services,China
+22,PEIX,"Alto Ingredients, Inc.",Energy,United States
+23,VXRT,"Vaxart, Inc. - Common Stock",Healthcare,United States
+24,VTOL,"Bristow Group, Inc.",Energy,United States
+25,PRPO,"Precipio, Inc.",Healthcare,United States
+26,OBCI,"Ocean Bio-Chem, Inc.",Industrials,United States
+27,OBLG,Oblong Inc.,Technology,United States
+28,SEED,Origin Agritech Limited,Basic Materials,China
+29,NIO,NIO Inc.,Consumer Cyclical,China
+30,ALT,"Altimmune, Inc.",Healthcare,United States
+31,CLSK,"CleanSpark, Inc.",Technology,United States
+32,CARV,"Carver Bancorp, Inc.",Financial Services,United States
+33,SINT,"SiNtx Technologies, Inc.",Healthcare,United States
+34,TMDI,Titan Medical Inc.,Healthcare,Canada
+35,GSX,GSX Techedu Inc.,Consumer Defensive,China
+36,NVAX,"Novavax, Inc.",Healthcare,United States
+37,ATNM,"Actinium Pharmaceuticals, Inc. ",Healthcare,United States
+38,EQ,"Equillium, Inc.",Healthcare,United States
+39,SUNW,"Sunworks, Inc.",Technology,United States
+40,SOLO,Electrameccanica Vehicles Corp.,Consumer Cyclical,Canada
+41,BGFV,Big 5 Sporting Goods Corporatio,Consumer Cyclical,United States
+42,CMBM,Cambium Networks Corporation,Technology,United States
+43,CHFS,"CHF Solutions, Inc.",Healthcare,United States
+44,MIST,Milestone Pharmaceuticals Inc.,Healthcare,Canada

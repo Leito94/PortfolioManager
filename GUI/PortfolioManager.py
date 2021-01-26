@@ -19,7 +19,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FQtAgg
 
 # Import the datasets
 price_data = pd.read_csv("../relevant_price_data_from_2016.csv", index_col=0)
-fundamental_data = pd.read_csv("../fundamentals.csv", index_col=0)
+fundamental_data = pd.read_csv("../2020-01-25_funds_df.csv", index_col=0)
 test_df = price_data[price_data.ticker == "MSFT"]
 
 # get a list of all countries
@@ -295,6 +295,7 @@ class MainWindow(qtw.QWidget):
         funds_at = []
         funds_op = []
         funds_so = []
+        funds_be = []
         prices = []
         # for progress bar. This should be 15 percent.
         count = 0
@@ -308,23 +309,30 @@ class MainWindow(qtw.QWidget):
             try:
                 funds_at.append(
                     fundamental_data[(fundamental_data.date == rel_date) & (fundamental_data.ticker == ticker)][
-                        "at"].item())
+                        "assets"].item())
             except:
                 funds_at.append(np.nan)
+
+            try:
+                funds_be.append(
+                    fundamental_data[(fundamental_data.date == rel_date) & (fundamental_data.ticker == ticker)][
+                        "book_equity"].item())
+            except:
+                funds_be.append(np.nan)
             try:
                 funds_op.append(
                     fundamental_data[(fundamental_data.date == rel_date) & (fundamental_data.ticker == ticker)][
-                        "op"].item())
+                        "ebit"].item())
             except:
                 funds_op.append(np.nan)
             try:
                 funds_so.append(
                     fundamental_data[(fundamental_data.date == rel_date) & (fundamental_data.ticker == ticker)][
-                        "so"].item())
+                        "shares_outstanding"].item())
             except:
                 funds_so.append(np.nan)
             try:
-                prices.append(start_price[start_price.ticker == ticker]["adjclose"].item())
+                prices.append(start_price[start_price.ticker == ticker]["adj_close"].item())
             except:
                 prices.append(np.nan)
 
@@ -341,13 +349,14 @@ class MainWindow(qtw.QWidget):
             "at": funds_at,
             "op": funds_op,
             "so": funds_so,
-            "adjclose": prices
+            "b_e" : funds_be,
+            "adj_close": prices
         })
 
         # market value
-        fund_df["mar_cap"] = fund_df.so * fund_df.adjclose
+        fund_df["mar_cap"] = fund_df.so * fund_df.adj_close
         # book-to-market
-        fund_df["beme"] = fund_df["at"] / fund_df["mar_cap"]
+        fund_df["beme"] = fund_df["b_e"] / fund_df["mar_cap"]
         # Profitability
         fund_df["prof"] = fund_df["op"] / fund_df["at"]
 
@@ -365,9 +374,9 @@ class MainWindow(qtw.QWidget):
         print(stepper)
         for ticker in start_price.ticker:
             try:
-                date_price = start_price[start_price.ticker == ticker][:1]["adjclose"].item()
-                today_price = end_price[end_price.ticker == ticker][:1]["adjclose"].item()
-                momentum = today_price - date_price
+                date_price = start_price[start_price.ticker == ticker][:1]["adj_close"].item()
+                today_price = end_price[end_price.ticker == ticker][:1]["adj_close"].item()
+                momentum = (today_price - date_price) / date_price
                 momentum_list.append(momentum)
                 mom_ticker_list.append(ticker)
                 count += 1
