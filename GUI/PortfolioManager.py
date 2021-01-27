@@ -18,7 +18,7 @@ import qdarkstyle
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FQtAgg
 
 # Import the datasets
-price_data = pd.read_csv("../relevant_price_data_from_2016.csv", index_col=0)
+price_data = pd.read_csv("../relevant_price_data_from_2016.csv", index_col=0) # todo automatically update price data
 fundamental_data = pd.read_csv("../2020-01-25_funds_df.csv", index_col=0)
 test_df = price_data[price_data.ticker == "MSFT"]
 
@@ -27,7 +27,7 @@ with open("../countries.json", "r") as f:
     countries = json.load(f)
 
 # List, Dictionary for the dates
-years = ["2016", "2017", "2018", "2019", "2020"]
+years = ["2016", "2017", "2018", "2019", "2020", "2021"]
 months_days_dict = {
     "January": list(range(1, 32)),
     "February": list(range(1, 29)),
@@ -911,7 +911,7 @@ class MainWindow(qtw.QWidget):
             n += 1
         msci_world["kum_ret"] = kum_ret
 
-        for df in data_df_list:
+        for df in relevant_df_list:
             kum_ret = []
             n = 0
             while n < len(df):
@@ -934,14 +934,24 @@ class MainWindow(qtw.QWidget):
         n = 0
         kum_port_rets = []
         while n < len(msci_world):
-            rets = [relevant_df_list[m].loc[n]["kum_ret"] for m in range(len(relevant_df_list))]
-            kum_port_ret = sum(rets) / len(relevant_df_list)
-            kum_port_rets.append(kum_port_ret)
-            n += 1
-        msci_world["kum_port_rets"] = kum_port_rets
+            try:
+                rets = [relevant_df_list[m].loc[n]["kum_ret"] for m in range(len(relevant_df_list))]
+                kum_port_ret = sum(rets) / len(relevant_df_list)
+                kum_port_rets.append(kum_port_ret)
 
-        plt.plot(msci_world.index, msci_world.kum_ret, "blue", label="MSCI World Index")
-        plt.plot(msci_world.index, msci_world.kum_port_rets, "red", label="My Portfolio")
+                n += 1
+                last_date = n
+            except:
+                last_date = n
+                print("kum ret didnt work for", str(n))
+                break
+        #msci_world["kum_port_rets"] = kum_port_rets
+        print(len(msci_world.index[:last_date]))
+        print(len(msci_world.kum_ret[:last_date]))
+        print(len(msci_world.index[:last_date]))
+        print(len(kum_port_rets))
+        plt.plot(msci_world.index[:last_date], msci_world.kum_ret[:last_date], "blue", label="MSCI World Index")
+        plt.plot(msci_world.index[:last_date], kum_port_rets, "red", label="My Portfolio")
         plt.legend()
         plt.xlabel("date")
         plt.ylabel("cumulative return")
@@ -1005,12 +1015,31 @@ class MainWindow(qtw.QWidget):
             global end_date
             global start_price
             global port_length  # for portfolio index later
+            today_date = datetime.date.today().strftime("%Y-%m-%d")
+            # todo if future is selected restart
+            # check input dates
+            input_start_date = datetime.date(int(self.cbo_1.currentText()),
+                                               list(months_days_dict.keys()).index(self.cbo_2.currentText()) + 1,
+                                               int(self.cbo_3.currentText())).strftime("%Y-%m-%d")
+            input_end_date = datetime.date(int(self.cbo_4.currentText()),
+                                             list(months_days_dict.keys()).index(self.cbo_5.currentText()) + 1,
+                                             int(self.cbo_6.currentText())).strftime("%Y-%m-%d")
+
+            print(today_date, input_end_date, input_start_date)
+
+            if input_end_date > today_date or input_start_date > today_date:
+                error = qtw.QMessageBox.critical(self, "Error", "Das Datum darf nicht in der Zukunft liegen!")
+                self.btn_1.clicked.connect(self.start_analysis)
+                self.btn_1.setText("Start Analysis")
+                return
+
             start_date = self.get_correct_date(int(self.cbo_3.currentText()),
                                                list(months_days_dict.keys()).index(self.cbo_2.currentText()) + 1,
                                                int(self.cbo_1.currentText()), test_df)
             end_date = self.get_correct_date(int(self.cbo_6.currentText()),
                                              list(months_days_dict.keys()).index(self.cbo_5.currentText()) + 1,
                                              int(self.cbo_4.currentText()), test_df)
+            print(end_date)
             if end_date < start_date or end_date == start_date:
                 error = qtw.QMessageBox.critical(self, "Error", "Das Startdatum muss von dem Enddatum liegen!")
                 self.btn_1.clicked.connect(self.start_analysis)
