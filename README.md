@@ -6,7 +6,7 @@ price_data.to_csv("relevant_price_data_from_2016.csv")
 I cannot provide the file as it exceeds 100MB (~300MB at this point). Also it needs to be up to date in order to 
 provide useful advice. If it is requested, I could share the file.
 
-This application recommends stocks corresponding to the user's desired factors, time frames and dates.
+This application recommends stocks corresponding to the user's desired factors, time frames and depth.
 
 If the end of the time frame is in the past, he can visualize the performance of the recommended portfolio until now (compared to the benchmark MSCI World Index).
 
