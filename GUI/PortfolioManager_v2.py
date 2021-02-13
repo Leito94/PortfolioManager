@@ -477,7 +477,6 @@ class MainWindow(qtw.QWidget):
 
         })
         self.momentum_df = self.momentum_df.dropna()
-        self.momentum_df.to_csv("self.momentum_df_test.csv")
         return self.momentum_df
 
     def value_scraping(self):
@@ -559,7 +558,6 @@ class MainWindow(qtw.QWidget):
 
         })
         self.value_df = self.value_df.dropna()
-        self.value_df.to_csv("value_df_test.csv")
         return self.value_df
 
     def profit_scraping(self):
@@ -643,7 +641,6 @@ class MainWindow(qtw.QWidget):
 
         })
         self.profit_df = self.profit_df.dropna()
-        self.profit_df.to_csv("profit_df_test.csv")
         return self.profit_df
 
     def find_next_company(self, df, industry_list, country_list, portfolio):
@@ -1100,7 +1097,6 @@ class MainWindow(qtw.QWidget):
                 print(self.portfolio_df)
 
                 self.create_table(self.portfolio_df)
-                # TODO add portfolio table here
                 self.btn_1.setText("Show Past Performance")
                 self.btn_1.clicked.connect(self.past_performance)
                 self.lb_5.setText("finished")

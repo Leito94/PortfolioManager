@@ -480,7 +480,6 @@ class MainWindow(qtw.QWidget):
 
         })
         momentum_df = momentum_df.dropna()
-        momentum_df.to_csv("momentum_df_test.csv")
         return momentum_df
 
     def value_scraping(self):
@@ -563,7 +562,6 @@ class MainWindow(qtw.QWidget):
 
         })
         value_df = value_df.dropna()
-        value_df.to_csv("value_df_test.csv")
         return value_df
 
     def profit_scraping(self):
@@ -648,7 +646,6 @@ class MainWindow(qtw.QWidget):
 
         })
         profit_df = profit_df.dropna()
-        profit_df.to_csv("profit_df_test.csv")
         return profit_df
 
     def find_next_company(self, df, industry_list, country_list, portfolio):
