@@ -19,7 +19,7 @@ High profitability stocks tend to outperform.
 All the data is websraped and prepared by myself. You are free to use your own data to try the analysis. This product is not to be used for commercial purposes. 
 The icon(s) are downloaded from flaticon.com
 
-Unpack the price data available in the "Price_Data" - Folder. Currently available until 25th of January. 
+Unpack the price data available in the "Price_Data" - Folder. Currently available until 12th of February. 
 
-Automation of data actuality is in progress.
+Automation of data actuality is available in the GUI.
 
