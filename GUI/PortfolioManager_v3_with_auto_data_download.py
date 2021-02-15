@@ -246,16 +246,19 @@ class MainWindow(qtw.QWidget):
         self.lb_5.setText("downloading price data...this may take a while...")
 
         # get the latest date + 1
-        latest_date = self.price_data.date.max()
-        print(latest_date)
-        latest_date = datetime.datetime.strptime(latest_date, '%Y-%m-%d')
+        last_date = self.price_data.date.max()
+        latest_date = datetime.datetime.strptime(last_date, '%Y-%m-%d')
         latest_date += datetime.timedelta(days=1)
         latest_date = latest_date.strftime("%Y-%m-%d")
 
-        # date today
-        today = datetime.datetime.today().strftime("%Y-%m-%d")
+        # date today, get last business day
+        today = datetime.datetime.today()
+        offset = max(1, (today.weekday() + 6) % 7 - 3)
+        timedelta = datetime.timedelta(offset)
+        today = today - timedelta
+        today = today.strftime("%Y-%m-%d")
 
-        if today == latest_date:
+        if today == last_date:
             message = qtw.QMessageBox.information(self, "Current Data", "The data is already up to date!")
             return
         # all the tickers
@@ -312,6 +315,9 @@ class MainWindow(qtw.QWidget):
 
         # compare lengths
         print("length of old data: " + str(len_old_data) + "\n length of new data: " + str(len_new_data))
+
+        # reset progress bar
+        self.progress_bar.setValue(0)
 
         if len_new_data > len_old_data:
             # saving as csv
