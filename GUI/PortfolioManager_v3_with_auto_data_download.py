@@ -1022,7 +1022,7 @@ class MainWindow(qtw.QWidget):
             n += 1
         msci_world["kum_ret"] = kum_ret
 
-        for df in relevant_df_list:
+        for index, df in enumerate(relevant_df_list):
             kum_ret = []
             n = 0
             while n < len(df):
