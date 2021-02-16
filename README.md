@@ -23,3 +23,5 @@ Unpack the price data available in the "Price_Data" - Folder. Currently availabl
 
 Automation of data actuality is available in the GUI.
 
+Exe file must be unpacked into the gui file to be utilizable.
+
