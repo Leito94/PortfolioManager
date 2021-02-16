@@ -60,12 +60,12 @@ class MainWindow(qtw.QWidget):
         # Widgets------------------------------------------------------------------------------------------------------#
 
         # Labels
-        self.lb_1 = qtw.QLabel("Geben Sie Start- und Enddatum an")
-        self.lb_2 = qtw.QLabel("Startdatum")
-        self.lb_3 = qtw.QLabel("Enddatum")
-        self.lb_4 = qtw.QLabel("Auf welchen Faktoren soll die Analyse basieren?")
+        self.lb_1 = qtw.QLabel("Input Start Date and End Date")
+        self.lb_2 = qtw.QLabel("Start Date")
+        self.lb_3 = qtw.QLabel("End Date")
+        self.lb_4 = qtw.QLabel("The Factors the Analysis shall base on")
         self.lb_5 = qtw.QLabel("")
-        self.lb_7 = qtw.QLabel("Wie tiefgründig soll die Analyse sein?")
+        self.lb_7 = qtw.QLabel("Depth of the Analysis")
 
 
         # Comboboxes
@@ -1054,7 +1054,7 @@ class MainWindow(qtw.QWidget):
                 last_date = n
             except:
                 last_date = n
-                print("kum ret didnt work for", str(n))
+                print("return was not calculated for", str(n))
                 break
         #msci_world["kum_port_rets"] = kum_port_rets
         print(len(msci_world.index[:last_date]))
@@ -1135,7 +1135,7 @@ class MainWindow(qtw.QWidget):
             print(today_date, input_end_date, input_start_date)
 
             if input_end_date > today_date or input_start_date > today_date:
-                error = qtw.QMessageBox.critical(self, "Error", "Das Datum darf nicht in der Zukunft liegen!")
+                error = qtw.QMessageBox.critical(self, "Error", "Time travel is not yet invented. \n Please no future dates!")
                 self.btn_1.clicked.connect(self.start_analysis)
                 self.btn_1.setText("Start Analysis")
                 return
@@ -1148,7 +1148,7 @@ class MainWindow(qtw.QWidget):
                                              int(self.cbo_4.currentText()), test_df)
             print(self.end_date)
             if self.end_date < self.start_date or self.end_date == self.start_date:
-                error = qtw.QMessageBox.critical(self, "Error", "Das Startdatum muss von dem Enddatum liegen!")
+                error = qtw.QMessageBox.critical(self, "Error", "Start date must be before end date!")
                 self.btn_1.clicked.connect(self.start_analysis)
                 self.btn_1.setText("Start Analysis")
                 return
