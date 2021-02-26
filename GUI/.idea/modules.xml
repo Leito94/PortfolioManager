@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../Webscraping/Flight_Search_Automatization/.idea/Flight_Search_Automatization.iml" filepath="$PROJECT_DIR$/../../../Webscraping/Flight_Search_Automatization/.idea/Flight_Search_Automatization.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/GUI.iml" filepath="$PROJECT_DIR$/.idea/GUI.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../GUI/WetterApp/.idea/WetterApp.iml" filepath="$PROJECT_DIR$/../../../GUI/WetterApp/.idea/WetterApp.iml" />
     </modules>

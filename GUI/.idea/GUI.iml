@@ -5,5 +5,6 @@
     <orderEntry type="jdk" jdkName="Python 3.8 (My_Projects)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="WetterApp" />
+    <orderEntry type="module" module-name="Flight_Search_Automatization" />
   </component>
 </module>

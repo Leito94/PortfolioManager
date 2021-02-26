@@ -101,7 +101,7 @@ class MainWindow(qtw.QWidget):
         self.btn_1.clicked.connect(self.start_analysis)
         self.btn_2 = qtw.QPushButton("Performance until today")
         self.btn_2.clicked.connect(self.past_performance)
-        self.btn_3 = qtw.QPushButton("Quit", clicked=self.close)
+        self.btn_3 = qtw.QPushButton("Quit", clicked=self.close_program)
         self.btn_3.setStyleSheet("font: bold; background-color: red")
         self.btn_4 = qtw.QPushButton("Update Price Data", clicked=self.update_price_data)
         self.btn_4.setStyleSheet("font: bold; background-color: green")
@@ -206,6 +206,9 @@ class MainWindow(qtw.QWidget):
 
     # Functions--------------------------------------------------------------------------------------------------------#
 
+    def close_program(self):
+        sys.exit()
+
     def increase_step(self):
         self.progress_bar.setValue(self.progress_bar.value() + 1)
 
@@ -257,7 +260,7 @@ class MainWindow(qtw.QWidget):
         timedelta = datetime.timedelta(offset)
         today = today - timedelta
         today = today.strftime("%Y-%m-%d")
-
+        print("today: " + today + "\nlast_date: " + last_date + " \nlatest_date: " + latest_date)
         if today == last_date:
             message = qtw.QMessageBox.information(self, "Current Data", "The data is already up to date!")
             return
@@ -281,7 +284,7 @@ class MainWindow(qtw.QWidget):
                     print(count)
                 if count % stepsize == 0:
                     self.increase_step()
-
+                print("found data for " + ticker)
                 QApplication.processEvents()
             except:
                 print("could not find price_data for " + ticker)
@@ -290,6 +293,7 @@ class MainWindow(qtw.QWidget):
                     print(count)
                 if count % stepsize == 0:
                     self.increase_step()
+                QApplication.processEvents()
         # set label text
         self.lb_5.setText("concatenating dataframes")
 
@@ -1226,4 +1230,5 @@ class MainWindow(qtw.QWidget):
 app = qtw.QApplication(sys.argv)
 app.setStyleSheet(qdarkstyle.load_stylesheet())
 mw = MainWindow()
+mw.show()
 app.exec_()  # tells python to run the app
